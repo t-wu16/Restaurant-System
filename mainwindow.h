@@ -3,11 +3,19 @@
 
 #include "headfile.h"
 #include "regist.h"
+#include "forgot.h"
 #include "tableview.h"
 #include "customerview.h"
 #include "waiterview.h"
 #include "cookview.h"
 #include "administrator.h"
+#include "managerview.h"
+
+
+/*
+ * 显示主登录界面
+ * 外接注册，顾客，服务员，厨师，经理，管理员的界面
+*/
 
 class MainWindow : public QMainWindow
 {
@@ -16,16 +24,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void initTable();
+
+private:
+    bool getUserInfo();           //登录检验
     void designLayout();          //设置布局
     void hideAll();               //隐藏所有图片
     void drawMain();              //绘制主界面
 
-
-public slots:
+private slots:
     void login_btn_clicked();     //按下登录按钮
     void regist_btn_clicked();    //按下注册按钮
-   // void forgot_btn_clicked();    //按下忘记按钮
+    void forgot_btn_clicked();    //按下忘记按钮
     void picture_show();          //显示身份图片
 
 private:
@@ -40,6 +49,8 @@ private:
     QPushButton *login_btn;       //登录按钮
     QPushButton *regist_btn;      //注册按钮
     QPushButton *forgot_btn;      //忘记密码
+    QPushButton *phone_btn;       //联系电话
+    QPushButton *help_btn;        //帮助按钮
 
     QLabel *title_label;          //标题标签
     QLabel *user_label;           //用户名标签
@@ -59,10 +70,17 @@ private:
 
     QWidget *welcome;             //欢迎登录界面
     Regist *regist_view;          //注册界面
+    Forgot *forgot_view;          //忘记密码界面
     TableView *table_view;        //餐桌界面
     CustomerView *customer_view;  //顾客界面
     WaiterView *waiter_view;      //服务员界面
     CookView *cook_view;          //初始界面
+
+    //用于存储数据库中检索到的信息
+    QString user_identity;
+    QString user_id;
+    QString user_pass;
+    QString user_name;
 
 };
 

@@ -11,8 +11,9 @@ public:
     ~Regist();
     void drawRegist();
 
-public  slots:
+private slots:
     void real_regist_btn_clicked();      //按下取消按钮
+
 private:
     QFont font1;
     QFont font2;

@@ -13,7 +13,6 @@
 #include <QTableWidget>
 #include <QHeaderView>
 #include <QAbstractItemView>
-#include <QHash>
 #include <QDebug>
 #include <QIcon>
 #include <QPalette>
@@ -24,6 +23,8 @@
 #include <QButtonGroup>
 #include <QSqlTableModel>
 #include <QSqlError>
-
+#include <QSqlQuery>
+#include <QVariant>
+#include "maindata.h"
 
 #endif // HEADFILE_H
